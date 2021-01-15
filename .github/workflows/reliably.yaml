@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
       - name: 'Run Reliably'
         uses: reliablyhq/gh-action@main
-        continue-on-error: true
+        continue-on-error: false
         with:
           dir: ./manifests
           format: "sarif"
