@@ -10,6 +10,6 @@ spec:
       - image: nginx
         name: myapp
         ports:
-        - containerPort: 8000
+        - containerPort: 8001
           protocol: TCP
         imagePullPolicy: Always
