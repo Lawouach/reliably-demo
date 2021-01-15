@@ -1,4 +1,4 @@
-name: Reliably Suggestions
+name: Reliably GitHub workflow with SARIF report
 
 on:
   push:
@@ -9,6 +9,13 @@ jobs:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
       - name: 'Run Reliably'
-        uses: reliablyhq/gh-action@v1
+        uses: reliablyhq/gh-action@main
+        continue-on-error: true
         with:
           dir: ./manifests
+          format: "sarif"
+          output: "reliably.sarif"
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: reliably.sarif
