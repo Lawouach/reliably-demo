@@ -12,7 +12,7 @@ jobs:
         uses: reliablyhq/gh-action@main
         continue-on-error: false
         with:
-          dir: ./manifests
+          dir: './manifests'
           format: "sarif"
           output: "reliably.sarif"
       - name: Upload result to GitHub Code Scanning
